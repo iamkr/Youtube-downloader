@@ -4,9 +4,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 from io import BytesIO
-import os
 import base64
-import winreg
 
 
 st.set_page_config(page_title="Youtube Downloader",page_icon=":music:")
