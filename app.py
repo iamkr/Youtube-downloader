@@ -6,7 +6,6 @@ import pandas as pd
 from io import BytesIO
 import base64
 
-
 st.set_page_config(page_title="Youtube Downloader",page_icon=":music:")
 
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
