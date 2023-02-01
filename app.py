@@ -76,7 +76,7 @@ def main():
         songs = Search(query)
 
         try :
-            for i in range (1,6):
+            for i in range (1,11):
                 st.write("{} : {} :{} views".format(i,songs.results[i].title,songs.results[i].views))
             st.write("-----------------")
             status1=True
@@ -87,7 +87,7 @@ def main():
             try :
                 song=st.text_input('Enter song number')
                 song=int(song)
-                if song not in [1,2,3,4,5]:
+                if song not in [1,2,3,4,5,6,7,8,9,10]:
                     st.error("incorrect song number")
                 id=songs.results[int(song)].video_id
                 status2=True
