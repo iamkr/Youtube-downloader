@@ -1,9 +1,6 @@
-from pytube import Search
 from pytube import YouTube
 from io import BytesIO
 
-def search(query):
-  return Search(query)
 
 def getMP3(id):
   yt = YouTube(str("https://www.youtube.com/watch?v={}".format(id)))
@@ -32,7 +29,7 @@ def getMP4(id,res):
     name="{}+.mp4".format(yt.title)
   except AttributeError:
     return None
-    
+
   return {
     "title": yt.title,
     "size" : size,

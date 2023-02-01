@@ -1,10 +1,6 @@
-from pytube import YouTube
 from pytube import Search
 import streamlit as st
 from streamlit_option_menu import option_menu
-import pandas as pd
-from io import BytesIO
-import base64
 import functionality
 
 st.set_page_config(page_title="Youtube Downloader",page_icon=":music:")
@@ -34,13 +30,12 @@ def main():
     temp = query.split("https://www.youtube.com/watch?v=")
 
     if temp[0] != "":
-        songs = functionality.search(query)
+        songs = Search(query)
         
         try :
-            for i in range (1,11):
-                
-                st.write("{} : {} : {} views".format(i,songs.results[i].title,songs.results[i].views))
-                st.image(songs.results[i].thumbnail_url,width=200)
+            for i,song in enumerate(songs.results):
+                st.write("{} : {} : {} views".format(i+1,song.title,song.views))
+                st.image(song.thumbnail_url,width=200)
                 st.write("-----------------")
             status1=True
         except IndexError:
@@ -93,7 +88,7 @@ def main():
             
             if status3==True:
                 if st.download_button('Download mp4 file',ytObj["buffer"],file_name=ytObj["name"],mime="video/mp4"):
-                    st.success("File is Downloaded")
+                    st.success("File is being Downloaded")
         else:
             st.warning('File Format not available')    
 
