@@ -33,9 +33,9 @@ def main():
         songs = Search(query)
         
         try :
-            for i,song in enumerate(songs.results):
-                st.write("{} : {} : {} views".format(i+1,song.title,song.views))
-                st.image(song.thumbnail_url,width=200)
+            for i in range(1,11):
+                st.write("{} : {} : {} views".format(i,songs.results[i].title,songs.results[i].views))
+                st.image(songs.results[i].thumbnail_url,width=200)
                 st.write("-----------------")
             status1=True
         except IndexError:
